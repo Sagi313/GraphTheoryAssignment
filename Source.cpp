@@ -165,7 +165,7 @@ void writeCSV(std::ofstream &myfile,double p, int isIso, int isCon, int diam) {
 int main()
 {
 	
-	int v =5;
+	int v =100;
 	double threshold = 0.5;
 	double *allPValues = random_p(threshold);
 	std::vector<int>* aGraph;
@@ -176,7 +176,7 @@ int main()
 	myfile.open("AlgoAssign.csv");
 
 	for (int i = 0; i < 10;i++) {
-		for (int j=0;j < 50;j++) {
+		for (int j=0;j < 500;j++) {
 			aGraph = build_random_graph(v, allPValues[i]);
 			isIso = is_isolated(aGraph, v);
 			isConn = connectivity(aGraph, v);
@@ -184,10 +184,7 @@ int main()
 			writeCSV(myfile , allPValues[i], isIso, isConn, diam);
 		}
 	}
-	
 	myfile.close();
-	
-	
 }
 
 
